@@ -1,0 +1,16 @@
+DINOv1: 1 components explain at least 95% variance.
+DINOv2: 1 components explain at least 95% variance.
+Computing mean Silhouette Scores with 50 PCA components...
+DINOv1 Mean Silhouette Score (50 PCA components): 0.0474
+DINOv2 Mean Silhouette Score (50 PCA components): 0.0843
+Computing per-sample Silhouette Scores with 50 PCA components...
+Performing paired t-test on per-sample Silhouette Scores...
+Paired t-test results:
+t-statistic: -129.6081
+p-value: 0.0000
+Since p-value (0.0000) < alpha (0.05), we reject the null hypothesis.
+There is a statistically significant difference in Silhouette Scores between DINOv1 and DINOv2.
+Performing 2D PCA on DINOv1 embeddings...
+DINOv1 Silhouette Score (2D): 0.0704
+Performing 2D PCA on DINOv2 embeddings...
+DINOv2 Silhouette Score (2D): 0.1435
