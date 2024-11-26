@@ -28,7 +28,7 @@ This repository provides a pipeline for processing CIFAR-10 dataset using DINOv1
 Install the required Python packages:
 
 ```bash
-pip install torch torchvision scikit-learn matplotlib tqdm scipy
+pip install -r requirements.txt
 ```
 
 ## Usage
