@@ -440,17 +440,34 @@ def main():
     )
 
     # ============================
-    # 10. Determining Number of Components for 95% Variance
+    # 10. Determining Number of Components for Desired Variance
     # ============================
-    threshold = 0.95
+    threshold = 0.5
     components_v1 = components_for_variance(var_explained_v1, threshold)
     components_v2 = components_for_variance(var_explained_v2, threshold)
-    print(
-        f"DINOv1: {components_v1} components explain at least {int(threshold*100)}% variance."
-    )
-    print(
-        f"DINOv2: {components_v2} components explain at least {int(threshold*100)}% variance."
-    )
+    # Total number of components available
+    total_components_v1 = len(var_explained_v1)
+    total_components_v2 = len(var_explained_v2)
+
+    # Dynamic print statement for DINOv1
+    if components_v1 < total_components_v1:
+        print(
+            f"DINOv1: {components_v1} components explain at least {int(threshold*100)}% variance."
+        )
+    else:
+        print(
+            f"DINOv1: Desired variance of {int(threshold*100)}% not achieved with {components_v1} components (all {total_components_v1} components used)."
+        )
+
+    # Dynamic print statement for DINOv2
+    if components_v2 < total_components_v2:
+        print(
+            f"DINOv2: {components_v2} components explain at least {int(threshold*100)}% variance."
+        )
+    else:
+        print(
+            f"DINOv2: Desired variance of {int(threshold*100)}% not achieved with {components_v2} components (all {total_components_v2} components used)."
+        )
 
     # ============================
     # 11. Silhouette Score Calculation
